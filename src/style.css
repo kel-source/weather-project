@@ -1,0 +1,45 @@
+body {
+    text-align: center;
+    margin: 30px;
+    color: #878787;
+}
+h1, strong, .day {
+    color: black;
+}
+.container {
+    max-width: 700px;
+}
+.city-search {
+    text-align: left;
+    margin: 20px;
+}
+.btn-success {
+    margin-bottom: 0;;
+}
+img {
+    width: 80px;
+    display: block;
+    margin: 0 auto;
+}
+p {
+    text-transform: capitalize;
+}
+.col-3 {
+    margin-top: 85px;
+}
+.today-icon {
+    width: 250px;
+}
+.day {
+    font-weight: 500;
+}
+.weather-data {
+    margin-top: 50px;
+}
+.daily-forecast {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+button {
+    margin-bottom: 20px;
+}

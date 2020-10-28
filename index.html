@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="city-search">
+                    <form id="city-enter">
+                        <input id="city" type="text" placeholder="Enter a city" autofocus/>
+                        <input type="submit" class="btn btn-warning"/>
+                        <button type="button" class="btn btn-success">Current</button>
+                    </form>
+                </div>
+            </br>
+                <h1 id="city-change">
+                    London, England
+                </h1>
+                <p id="today-date">
+                    Saturday 3rd October  |  16:00
+                </p>
+                <div class="row">
+                    <div class="col-3">
+                        <strong>Sunrise</strong>
+                    </br>
+                        07:07
+                    </div>
+                    <div class="col-6">
+                        <img src="media/rain.png" alt="light rain" class="today-icon">
+                    </div>
+                    <div class="col-3">
+                        <strong>Sunset</strong>
+                    </br>
+                        18:34
+                    </div>
+                </div>
+                <p id="weather-description">
+                    Rain
+                </p>
+                <h2>
+                    <strong class="todayTemp">14°C</strong><small> /57°F</small>
+                </h2>
+                <div class="row weather-data">
+                    <div class="col-4">
+                        <strong>Precipitation:</strong> %
+                    </div>
+                    <div class="col-4">
+                        <strong>Humidity:</strong> <span id="humidity">84%</span>
+                    </div>
+                    <div class="col-4">
+                        <strong>Wind:</strong> <span id="wind-speed">11mph</span>
+                    </div>
+                </div>
+            <div class="row daily-forecast">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col day">
+                                Sun
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="media/heavy-rain.png" alt="heavy rain">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>11°C</strong><small>/52°F</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col day">
+                                Mon
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="media/overcast.png" alt="overcast">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>15°C</strong><small>/59°F</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col day">
+                                Tues
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="media/overcast.png" alt="overcast">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>14°C</strong><small>/58°F</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col day">
+                                Wed
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="media/overcast.png" alt="overcast">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>14°C</strong><small>/58°F</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col day">
+                                Thur
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="media/sunny-intervals.png" alt="sunny intervals">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>14°C</strong><small>/58°F</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col day">
+                                Fri
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="media/sunny.png" alt="sunny">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>14°C</strong><small>/58°F</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <button type="button" class="btn btn-warning">Random city</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src = "src/app.js"></script>

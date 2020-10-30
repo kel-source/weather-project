@@ -4,7 +4,7 @@ body {
     color: #878787;
 }
 h1, strong, .day {
-    color: black;
+    color: blue;
 }
 .container {
     max-width: 700px;

@@ -45,4 +45,5 @@ button {
 }
 .open-source {
     font-size: xx-small;
+    text-transform: none;
 }

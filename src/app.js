@@ -7,6 +7,9 @@ let months = ["January", "February", "March", "April", "May", "June", "July", "A
 let month = months[now.getMonth()];
 let hours = now.getHours();
 let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 
 let todayDate = document.querySelector("#today-date");
 todayDate.innerHTML = `${day} ${date} ${month} | ${hours}:${minutes}`;
@@ -23,10 +26,6 @@ function showLocationData(response) {
   let weatherDescription = response.data.weather[0].description;
   let showWeatherDescription = document.querySelector("#weather-description");
   showWeatherDescription.innerHTML = `${weatherDescription}`;
-  // //Sunrise
-  // let unix = response.data.sys.sunrise;
-  // let date = new Date(unix*1000);
-  // console.log(date);
   //Temperature (C/F)
   let temperatureCelcius = Math.round(response.data.main.temp);
   let temperatureFarenheit = Math.round(temperatureCelcius *9/5 + 32);
@@ -58,7 +57,6 @@ function getLocationData() {
 let currentButton = document.querySelector(".btn-success");
 currentButton.addEventListener("click", getLocationData);
 
-
 //Other Location
 function citySubmit(event) {
   event.preventDefault();
@@ -70,5 +68,3 @@ function citySubmit(event) {
 
 let enterCity = document.querySelector("#city-enter");
 enterCity.addEventListener("submit", citySubmit);
-
-

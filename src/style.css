@@ -5,15 +5,17 @@ body {
 h1, strong, .day {
     color: black;
 }
-.container {
-    margin-top: 45px;
+.wrapper {
+    margin: 0 auto;
     max-width: 600px;
+}
+.weather-project {
+    padding: 25px;
     border: 1px solid lightgray;
     border-radius: 5px;
 }
 .city-search {
     text-align: left;
-    margin-top: 30px;
 }
 ul {
     margin: 0;
@@ -27,18 +29,20 @@ li {
 .btn-success {
     margin-bottom: 0;;
 }
-img {
-    width: 70px;
-    display: block;
-}
-p {
+#weather-description {
     text-transform: capitalize;
-}
-.col-3 {
-    margin-top: 85px;
+    margin-bottom: 15px;
 }
 .today-icon {
     width: 150px;
+}
+h2 strong {
+    font-size: 70px;
+    line-height: 1;
+}
+img {
+    width: 60px;
+    display: block;
 }
 .day {
     font-weight: 500;
@@ -54,7 +58,6 @@ p {
 .randomCity {
     display: block;
     margin: 0 auto;
-    margin-bottom: 25px;
 }
 .open-source {
     margin-top: 10px;

@@ -10,8 +10,6 @@
 </head>
 <body>
     <div class="container">
-        <div class="card">
-            <div class="card-body">
                 <div class="city-search">
                     <form id="city-enter">
                         <input id="city" type="text" placeholder="Enter a city" autofocus/>
@@ -23,13 +21,14 @@
                 <h1 id="city-change">
                     City (Country)
                 </h1>
-                <p id="today-date">
-                    Date  |  Time(24hr)
-                </br>
-                <span id="weather-description">
-                    A weather description
-                </span>
-                </p>
+                <ul>
+                    <li id="today-date">
+                        Date  |  Time(24hr)
+                    </li>
+                    <li id="weather-description">
+                        A weather description
+                    </li>
+                </ul>
                 <div class="row">
                     <div class="col-4">
                         <img src="media/rain.png" alt="light rain" class="today-icon">
@@ -38,17 +37,16 @@
                         <h2>
                             <strong class="todayTemp">°C</strong><small> /F</small>
                         </h2>
-                    </br>
-                        <span id="sunrise"></span>
                     </div>
-
                     <div class="col-4">
-                        <div>
-                            <strong>Humidity:</strong> <span id="humidity"></span>%
-                        </div>
-                        <div>
-                            <strong>Wind:</strong> <span id="wind-speed"></span>mph
-                        </div>
+                        <ul>
+                            <li>
+                                <strong>Humidity:</strong> <span id="humidity"></span>%
+                            </li>
+                            <li>
+                                <strong>Wind:</strong> <span id="wind-speed"></span>mph
+                            </li>
+                        </ul>
                     </div>
                 </div>
             <div class="row daily-forecast">
@@ -156,12 +154,10 @@
                     </div>
                 </div>
             <button type="button" class="btn btn-warning randomCity">Random city</button>
-            </div>
-        </div>
-        <p class="open-source">
-            <a href="https://github.com/kel-source/weather-project/blob/main/index.html" target="_blank">Open-source code</a> by Kathryn E. Lloyd
-        </p>
     </div>
+    <p class="open-source">
+        <a href="https://github.com/kel-source/weather-project/blob/main/index.html" target="_blank">Open-source code</a> by Kathryn E. Lloyd
+    </p>
     <script src = "src/app.js"></script>
 </body>
 </html>

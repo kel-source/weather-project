@@ -8,10 +8,21 @@ h1, strong, .day {
 .container {
     margin-top: 45px;
     max-width: 600px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
 }
 .city-search {
     text-align: left;
-    margin-top: 10px;
+    margin-top: 30px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .btn-success {
     margin-bottom: 0;;
@@ -43,7 +54,7 @@ p {
 .randomCity {
     display: block;
     margin: 0 auto;
-    margin-bottom: 7px;
+    margin-bottom: 25px;
 }
 .open-source {
     margin-top: 10px;

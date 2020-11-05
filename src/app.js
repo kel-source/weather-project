@@ -1,18 +1,23 @@
 //Current Location Date & Time
-let now = new Date();
+function formatDate(timestamp) {
+let now = new Date(timestamp);
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let day = days[now.getDay()];
 let date = now.getDate();
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 let month = months[now.getMonth()];
 let hours = now.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
+return `${day} ${date} ${month} | ${hours}:${minutes}`;
+}
 
-let todayDate = document.querySelector("#today-date");
-todayDate.innerHTML = `${day} ${date} ${month} | ${hours}:${minutes}`;
+
 
 //Location Data
 function showLocationData(response) {
@@ -22,7 +27,7 @@ function showLocationData(response) {
   let country = response.data.sys.country;
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${city} (${country})`;
-  //Weather
+  //Weather Description
   let weatherDescription = response.data.weather[0].description;
   let showWeatherDescription = document.querySelector("#weather-description");
   showWeatherDescription.innerHTML = `${weatherDescription}`;
@@ -34,11 +39,14 @@ function showLocationData(response) {
   //Humidity
   let humidity = Math.round(response.data.main.humidity);
   let showHumidity = document.querySelector("#humidity");
-  showHumidity.innerHTML = `${humidity}%`;
+  showHumidity.innerHTML = humidity;
   //Wind Speed
   let windSpeed = Math.round(response.data.wind.speed);
   let showWindSpeed = document.querySelector("#wind-speed");
-  showWindSpeed.innerHTML = `${windSpeed}km/h`;
+  showWindSpeed.innerHTML = windSpeed;
+  //Date
+   let todayDate = document.querySelector("#today-date");
+   todayDate.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 //Current Location

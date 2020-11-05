@@ -21,45 +21,34 @@
                 </div>
             </br>
                 <h1 id="city-change">
-                    London, England
+                    City (Country)
                 </h1>
                 <p id="today-date">
-                    Saturday 3rd October  |  16:00
+                    Date  |  Time(24hr)
+                </br>
+                <span id="weather-description">
+                    A weather description
+                </span>
                 </p>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Sunrise</strong>
-                    </br>
-                        <span id="sunrise">
-                            07:07
-                        </span>
-                    </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <img src="media/rain.png" alt="light rain" class="today-icon">
                     </div>
-                    <div class="col-3">
-                        <strong>Sunset</strong>
+                    <div class="col-4">
+                        <h2>
+                            <strong class="todayTemp">°C</strong><small> /F</small>
+                        </h2>
                     </br>
-                        <span id="sunset">
-                            18:34
-                        </span>
+                        <span id="sunrise"></span>
                     </div>
-                </div>
-                <p id="weather-description">
-                    Rain
-                </p>
-                <h2>
-                    <strong class="todayTemp">14°C</strong><small> /57°F</small>
-                </h2>
-                <div class="row weather-data">
+
                     <div class="col-4">
-                        <strong>Precipitation:</strong> %
-                    </div>
-                    <div class="col-4">
-                        <strong>Humidity:</strong> <span id="humidity">84%</span>
-                    </div>
-                    <div class="col-4">
-                        <strong>Wind:</strong> <span id="wind-speed">11mph</span>
+                        <div>
+                            <strong>Humidity:</strong> <span id="humidity"></span>%
+                        </div>
+                        <div>
+                            <strong>Wind:</strong> <span id="wind-speed"></span>mph
+                        </div>
                     </div>
                 </div>
             <div class="row daily-forecast">
@@ -75,8 +64,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <strong>11°C</strong><small>/52°F</small>
+                            <div class="col forecastTemperatures">
+                                <strong>11</strong>°C<small>/52°F</small>
                             </div>
                         </div>
                     </div>
@@ -92,7 +81,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col forecastTemperatures">
                                 <strong>15°C</strong><small>/59°F</small>
                             </div>
                         </div>
@@ -109,7 +98,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col forecastTemperatures">
                                 <strong>14°C</strong><small>/58°F</small>
                             </div>
                         </div>
@@ -126,7 +115,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col forecastTemperatures">
                                 <strong>14°C</strong><small>/58°F</small>
                             </div>
                         </div>
@@ -143,7 +132,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col forecastTemperatures">
                                 <strong>14°C</strong><small>/58°F</small>
                             </div>
                         </div>
@@ -160,18 +149,18 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col forecastTemperatures">
                                 <strong>14°C</strong><small>/58°F</small>
                             </div>
                         </div>
                     </div>
                 </div>
-            <button type="button" class="btn btn-warning">Random city</button>
+            <button type="button" class="btn btn-warning randomCity">Random city</button>
             </div>
-            <p class="open-source">
-                <a href="https://github.com/kel-source/weather-project/blob/main/index.html" target="_blank">Open-source code</a> by Kathryn E. Lloyd
-            </p>
         </div>
+        <p class="open-source">
+            <a href="https://github.com/kel-source/weather-project/blob/main/index.html" target="_blank">Open-source code</a> by Kathryn E. Lloyd
+        </p>
     </div>
     <script src = "src/app.js"></script>
 </body>

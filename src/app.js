@@ -1,6 +1,6 @@
 //Current Location Date & Time
-function formatDate(timestamp) {
-let now = new Date(timestamp);
+function formatDate() {
+let now = new Date();
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let day = days[now.getDay()];
 let date = now.getDate();
@@ -24,32 +24,40 @@ function showLocationData(response) {
   let city = response.data.name;
   let country = response.data.sys.country;
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${city} (${country})`;
-  //Weather Icon
-  let icon = document.querySelector("#icon");
-  let showWeatherIcon = response.data.weather[0].icon;
-  icon.setAttribute("src", `http://openweathermap.org/img/wn/${showWeatherIcon}@2x.png`);
-  icon.setAttribute("alt", showWeatherDescription);
   //Weather Description
   let weatherDescription = response.data.weather[0].description;
   let showWeatherDescription = document.querySelector("#weather-description");
-  showWeatherDescription.innerHTML = `${weatherDescription}`;
   //Temperature (C/F)
   let temperatureCelcius = Math.round(response.data.main.temp);
   let temperatureFarenheit = Math.round(temperatureCelcius *9/5 + 32);
   let h2 = document.querySelector("h2");
-  h2.innerHTML=`<strong>${temperatureCelcius}°C</strong> <small>/${temperatureFarenheit}°F</small>`;
   //Humidity
   let humidity = Math.round(response.data.main.humidity);
   let showHumidity = document.querySelector("#humidity");
-  showHumidity.innerHTML = humidity;
   //Wind Speed
   let windSpeed = Math.round(response.data.wind.speed);
   let showWindSpeed = document.querySelector("#wind-speed");
+  //Date
+  let todayDate = document.querySelector("#today-date");
+  //Weather Icon
+
+  let icon = document.querySelector("#icon");
+  let showWeatherIcon = response.data.weather[0].icon;
+  //City & Country
+  h1.innerHTML = `${city} (${country})`;
+  //Weather Description
+  showWeatherDescription.innerHTML = `${weatherDescription}`;
+  //Temperature (C/F)
+  h2.innerHTML=`<strong>${temperatureCelcius}°C</strong> <small>/${temperatureFarenheit}°F</small>`;
+  //Humidity
+  showHumidity.innerHTML = humidity;
+  //Wind Speed
   showWindSpeed.innerHTML = windSpeed;
   //Date
-   let todayDate = document.querySelector("#today-date");
-   todayDate.innerHTML = formatDate(response.data.dt * 1000);
+  todayDate.innerHTML = formatDate(response.data.dt * 1000);
+  //Weather Icon
+  icon.setAttribute("src", `http://openweathermap.org/img/wn/${showWeatherIcon}@2x.png`);
+  icon.setAttribute("alt", showWeatherDescription);
 }
 
 //Current Location

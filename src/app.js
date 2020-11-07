@@ -30,7 +30,7 @@ function showLocationData(response) {
   //Temperature (C/F)
   let temperatureCelcius = Math.round(response.data.main.temp);
   let temperatureFarenheit = Math.round(temperatureCelcius *9/5 + 32);
-  let h2 = document.querySelector("h2");
+  let h2 = document.querySelector("h2 strong");
   //Humidity
   let humidity = Math.round(response.data.main.humidity);
   let showHumidity = document.querySelector("#humidity");
@@ -40,15 +40,15 @@ function showLocationData(response) {
   //Date
   let todayDate = document.querySelector("#today-date");
   //Weather Icon
-
   let icon = document.querySelector("#icon");
   let showWeatherIcon = response.data.weather[0].icon;
+
   //City & Country
   h1.innerHTML = `${city} (${country})`;
   //Weather Description
   showWeatherDescription.innerHTML = `${weatherDescription}`;
   //Temperature (C/F)
-  h2.innerHTML=`<strong>${temperatureCelcius}°C</strong> <small>/${temperatureFarenheit}°F</small>`;
+  h2.innerHTML= temperatureCelcius;
   //Humidity
   showHumidity.innerHTML = humidity;
   //Wind Speed

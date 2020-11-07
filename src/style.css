@@ -42,8 +42,13 @@ li {
     margin: 0 auto;
 }
 h2 strong {
-    font-size: 70px;
+    font-size: 85px;
     line-height: 1;
+}
+h2 small {
+    font-size: 17px;
+    position: relative;
+    top: -50px;
 }
 img {
     width: 50px;

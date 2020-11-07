@@ -17,8 +17,6 @@ if (minutes < 10) {
 return `${day} ${date} ${month} | ${hours}:${minutes}`;
 }
 
-
-
 //Location Data
 function showLocationData(response) {
   console.log(response.data);
@@ -27,6 +25,11 @@ function showLocationData(response) {
   let country = response.data.sys.country;
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${city} (${country})`;
+  //Weather Icon
+  let icon = document.querySelector("#icon");
+  let showWeatherIcon = response.data.weather[0].icon;
+  icon.setAttribute("src", `http://openweathermap.org/img/wn/${showWeatherIcon}@2x.png`);
+  icon.setAttribute("alt", showWeatherDescription);
   //Weather Description
   let weatherDescription = response.data.weather[0].description;
   let showWeatherDescription = document.querySelector("#weather-description");
@@ -57,11 +60,9 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showLocationData);
 }
-
 function getLocationData() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-
 let currentButton = document.querySelector(".btn-success");
 currentButton.addEventListener("click", getLocationData);
 
@@ -73,6 +74,5 @@ function citySubmit(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${h1Change.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showLocationData);
 }
-
 let enterCity = document.querySelector("#city-enter");
 enterCity.addEventListener("submit", citySubmit);

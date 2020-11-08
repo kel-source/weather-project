@@ -29,7 +29,6 @@ function formatDate() {
     let showWeatherDescription = document.querySelector("#weather-description");
     //Temperature (C/F)
     let temperatureCelcius = Math.round(response.data.main.temp);
-    let temperatureFarenheit = Math.round(temperatureCelcius *9/5 + 32);
     let h2 = document.querySelector("#temperature");
     //Humidity
     let humidity = Math.round(response.data.main.humidity);
@@ -71,9 +70,7 @@ function formatDate() {
   function getLocationData() {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
-  let currentButton = document.querySelector(".btn-success");
-  currentButton.addEventListener("click", getLocationData);
-  
+
   //Other Location
   function citySubmit(event) {
     event.preventDefault();
@@ -82,5 +79,24 @@ function formatDate() {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${h1Change.value}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showLocationData);
   }
+
+  //Temperature(F)
+  function showFahrenheitTemperature(event) {
+    event.preventDefault();
+    let changeTemperatureElement = document.querySelector("#temperature");
+    let fahrenheitTemperature = (temperatureCelcius * 9) / 5 + 32;
+    changeTemperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  }
+
+  //Current Location
+  let currentButton = document.querySelector(".btn-success");
+  currentButton.addEventListener("click", getLocationData);
+
+  //Other Location
   let enterCity = document.querySelector("#city-enter");
   enterCity.addEventListener("submit", citySubmit);
+
+  //Temperature (F)
+  let temperatureCelcius = null;
+  let fahrenheitLink = document.querySelector("#fahrenheit-link");
+  fahrenheitLink.addEventListener("click", showFahrenheitTemperature);

@@ -1,20 +1,26 @@
 //Current Location Date & Time
-function formatDate() {
-  let now = new Date();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   let day = days[now.getDay()];
   let date = now.getDate();
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let month = months[now.getMonth()];
-  let hours = now.getHours();
-  if (hours < 10) {
+  return `${day} ${date} ${month} | ${formatHours(timestamp)}`;
+  }
+
+  //Forecast Hours
+  function formatHours(timestamp) {
+    let now = new Date(timestamp);
+    let hours = now.getHours();
+    if (hours < 10) {
     hours = `0${hours}`;
   }
   let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  return `${day} ${date} ${month} | ${hours}:${minutes}`;
+    return `${hours}:${minutes}`;
   }
   
   //Location Data
@@ -71,11 +77,42 @@ function formatDate() {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
 
+  //Forecast
+  function showForecast(response) {
+    let forecastElement= document.querySelector("#forecast");
+    forecastElement.innerHTML = null;
+    let forecastApi = null;
+
+    for (let index = 0; index < 6; index++) {
+      forecastApi = response.data.list[index];
+      forecastElement.innerHTML += 
+      `<div class="col 2">
+        <div class="row">
+          <div class="col day">
+            ${formatHours(forecastApi.dt * 1000)}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <img src = "http://openweathermap.org/img/wn/${forecastApi.weather[0].icon}@2x.png"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col forecastTemperatures">
+            <strong>${Math.round(forecastApi.main.temp)}°C</strong><small>/52°F</small>
+          </div>
+        </div>`;
+        }
+  }
+
   //Other Location
   function citySubmit(city) {
     let apiKey = "bbf0836e2ed0d460df9b8ac5448ab908";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showLocationData);
+
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showForecast);
   }
 
   function cityInputValue(event) {

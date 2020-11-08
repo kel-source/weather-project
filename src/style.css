@@ -33,6 +33,14 @@ li {
 .btn-success {
     margin-bottom: 0;;
 }
+.active {
+    color: black;
+    cursor: default;
+}
+.active:hover {
+    text-decoration: none;
+    color: black;
+}
 #weather-description {
     text-transform: capitalize;
     margin-bottom: 15px;

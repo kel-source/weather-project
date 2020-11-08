@@ -88,6 +88,8 @@ function formatDate() {
   function showFahrenheitTemperature(event) {
     event.preventDefault();
     let changeTemperatureElement = document.querySelector("#temperature");
+    celciusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
     let fahrenheitTemperature = (temperatureCelcius * 9) / 5 + 32;
     changeTemperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   }
@@ -96,6 +98,8 @@ function formatDate() {
   function showCelciusTemperature(event) {
     event.preventDefault();
     let changeTemperatureElement = document.querySelector("#temperature");
+    fahrenheitLink.classList.remove("active");
+    celciusLink.classList.add("active");
     changeTemperatureElement.innerHTML = temperatureCelcius;
   }
 

@@ -27,8 +27,8 @@ function formatDate() {
     //Weather Description
     let weatherDescription = response.data.weather[0].description;
     let showWeatherDescription = document.querySelector("#weather-description");
-    //Temperature (C/F)
-    let temperatureCelcius = Math.round(response.data.main.temp);
+    //Temperature
+    temperatureCelcius = Math.round(response.data.main.temp);
     let h2 = document.querySelector("#temperature");
     //Humidity
     let humidity = Math.round(response.data.main.humidity);
@@ -46,7 +46,7 @@ function formatDate() {
     h1.innerHTML = `${city} (${country})`;
     //Weather Description
     showWeatherDescription.innerHTML = `${weatherDescription}`;
-    //Temperature (C/F)
+    //Temperature
     h2.innerHTML= temperatureCelcius;
     //Humidity
     showHumidity.innerHTML = humidity;
@@ -72,15 +72,19 @@ function formatDate() {
   }
 
   //Other Location
-  function citySubmit(event) {
-    event.preventDefault();
-    let h1Change = document.querySelector("#city");
+  function citySubmit(city) {
     let apiKey = "bbf0836e2ed0d460df9b8ac5448ab908";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${h1Change.value}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showLocationData);
   }
 
-  //Temperature(F)
+  function cityInputValue(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city");
+    citySubmit(cityInputElement.value);
+  }
+
+  //Temperature (F)
   function showFahrenheitTemperature(event) {
     event.preventDefault();
     let changeTemperatureElement = document.querySelector("#temperature");
@@ -88,15 +92,29 @@ function formatDate() {
     changeTemperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   }
 
+  //Temperature (C)
+  function showCelciusTemperature(event) {
+    event.preventDefault();
+    let changeTemperatureElement = document.querySelector("#temperature");
+    changeTemperatureElement.innerHTML = temperatureCelcius;
+  }
+
+  let temperatureCelcius = null;
+
   //Current Location
   let currentButton = document.querySelector(".btn-success");
   currentButton.addEventListener("click", getLocationData);
 
   //Other Location
   let enterCity = document.querySelector("#city-enter");
-  enterCity.addEventListener("submit", citySubmit);
+  enterCity.addEventListener("submit", cityInputValue);
 
   //Temperature (F)
-  let temperatureCelcius = null;
   let fahrenheitLink = document.querySelector("#fahrenheit-link");
   fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+  //Temperature (C)
+  let celciusLink = document.querySelector("#celcius-link");
+  celciusLink.addEventListener("click", showCelciusTemperature);
+
+  citySubmit("London");

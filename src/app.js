@@ -25,9 +25,8 @@ function formatDate(timestamp) {
   
   //Location Data
   function showLocationData(response) {
-    console.log(response.data);
     //City & Country
-    let city = response.data.name;
+    city = response.data.name;
     let country = response.data.sys.country;
     let h1 = document.querySelector("h1");
     //Weather Description
@@ -62,12 +61,12 @@ function formatDate(timestamp) {
     todayDate.innerHTML = formatDate(response.data.dt * 1000);
     //Weather Icon
     icon.setAttribute("src", `http://openweathermap.org/img/wn/${showWeatherIcon}@2x.png`);
-    icon.setAttribute("alt", showWeatherDescription);
+    icon.setAttribute("alt", weatherDescription);
   }
   
 //Forecast
 function showForecast(response) {
-  let forecastElement= document.querySelector("#forecast");
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecastApi = null;
 
@@ -87,7 +86,7 @@ function showForecast(response) {
       </div>
       <div class="row">
         <div class="col forecastTemperatures">
-          <strong>${Math.round(forecastApi.main.temp)}°C</strong><small>/52°F</small>
+          <strong>${Math.round(forecastApi.main.temp)}</strong>
         </div>
       </div>`;
       }
@@ -132,6 +131,10 @@ function showForecast(response) {
     fahrenheitLink.classList.add("active");
     let fahrenheitTemperature = (temperatureCelcius * 9) / 5 + 32;
     changeTemperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+    let apiKey = "bbf0836e2ed0d460df9b8ac5448ab908";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(showForecast);
   }
 
   //Temperature (C)
@@ -141,8 +144,11 @@ function showForecast(response) {
     fahrenheitLink.classList.remove("active");
     celciusLink.classList.add("active");
     changeTemperatureElement.innerHTML = temperatureCelcius;
+
+    citySubmit(city);
   }
 
+  let city = null;
   let temperatureCelcius = null;
 
   //Current Location

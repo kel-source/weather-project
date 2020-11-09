@@ -65,6 +65,34 @@ function formatDate(timestamp) {
     icon.setAttribute("alt", showWeatherDescription);
   }
   
+//Forecast
+function showForecast(response) {
+  let forecastElement= document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecastApi = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecastApi = response.data.list[index];
+    forecastElement.innerHTML += 
+    `<div class="col 2">
+      <div class="row">
+        <div class="col day">
+          ${formatHours(forecastApi.dt * 1000)}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img src = "http://openweathermap.org/img/wn/${forecastApi.weather[0].icon}@2x.png"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col forecastTemperatures">
+          <strong>${Math.round(forecastApi.main.temp)}°C</strong><small>/52°F</small>
+        </div>
+      </div>`;
+      }
+}
+
   //Current Location
   function showPosition(position) {
     let latitude = position.coords.latitude;
@@ -72,37 +100,12 @@ function formatDate(timestamp) {
     let apiKey = "bbf0836e2ed0d460df9b8ac5448ab908";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showLocationData);
+
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showForecast);
   }
   function getLocationData() {
     navigator.geolocation.getCurrentPosition(showPosition);
-  }
-
-  //Forecast
-  function showForecast(response) {
-    let forecastElement= document.querySelector("#forecast");
-    forecastElement.innerHTML = null;
-    let forecastApi = null;
-
-    for (let index = 0; index < 6; index++) {
-      forecastApi = response.data.list[index];
-      forecastElement.innerHTML += 
-      `<div class="col 2">
-        <div class="row">
-          <div class="col day">
-            ${formatHours(forecastApi.dt * 1000)}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <img src = "http://openweathermap.org/img/wn/${forecastApi.weather[0].icon}@2x.png"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col forecastTemperatures">
-            <strong>${Math.round(forecastApi.main.temp)}°C</strong><small>/52°F</small>
-          </div>
-        </div>`;
-        }
   }
 
   //Other Location

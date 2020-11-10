@@ -15,11 +15,11 @@ function formatDate(timestamp) {
     let hours = now.getHours();
     if (hours < 10) {
     hours = `0${hours}`;
-  }
-  let minutes = now.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+    }
+    let minutes = now.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
     return `${hours}:${minutes}`;
   }
   
@@ -41,6 +41,7 @@ function formatDate(timestamp) {
     //Wind Speed
     let windSpeed = Math.round(response.data.wind.speed);
     let showWindSpeed = document.querySelector("#wind-speed");
+    let showBeaufortScale = document.querySelector("#beaufort-scale");
     //Date
     let todayDate = document.querySelector("#today-date");
     //Weather Icon
@@ -50,13 +51,40 @@ function formatDate(timestamp) {
     //City & Country
     h1.innerHTML = `${city} (${country})`;
     //Weather Description
-    showWeatherDescription.innerHTML = `${weatherDescription}`;
+    showWeatherDescription.innerHTML = weatherDescription;
     //Temperature
     h2.innerHTML= temperatureCelcius;
     //Humidity
     showHumidity.innerHTML = humidity;
     //Wind Speed
     showWindSpeed.innerHTML = windSpeed;
+    if (windSpeed <= 2) {
+     showBeaufortScale.innerHTML = "calm";
+    } else if (windSpeed <= 5) {
+      showBeaufortScale.innerHTML= "light air";
+    } else if (windSpeed <= 11) {
+      showBeaufortScale.innerHTML = "light breeze";
+    } else if (windSpeed <= 19) {
+      showBeaufortScale.innerHTML = "gentle breeze";
+    } else if (windSpeed <= 28) {
+      showBeaufortScale.innerHTML = "moderate breeze";
+    } else if (windSpeed <= 38) {
+      showBeaufortScale.innerHTML = "fresh breeze";
+    } else if (windSpeed <= 49) {
+      showBeaufortScale.innerHTML = "strong breeze";
+    } else if (windSpeed <= 61) {
+      showBeaufortScale.innerHTML = "high wind";
+    } else if (windSpeed <= 74) {
+      showBeaufortScale.innerHTML = "gale";
+    } else if (windSpeed <= 88) {
+      showBeaufortScale.innerHTML = "strong gale";
+    } else if (windSpeed <= 102) {
+      showBeaufortScale.innerHTML = "storm";
+    } else if (windSpeed <= 117) {
+      showBeaufortScale.innerHTML = "violent storm";
+    } else if (windSpeed >= 118) {
+      showBeaufortScale.innerHTML = "hurricane force";
+    }
     //Date
     todayDate.innerHTML = formatDate(response.data.dt * 1000);
     //Weather Icon

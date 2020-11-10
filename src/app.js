@@ -59,31 +59,31 @@ function formatDate(timestamp) {
     //Wind Speed
     showWindSpeed.innerHTML = windSpeed;
     if (windSpeed <= 2) {
-     showBeaufortScale.innerHTML = "calm";
+    showBeaufortScale.innerHTML = "calm";
     } else if (windSpeed <= 5) {
-      showBeaufortScale.innerHTML= "light air";
+      showBeaufortScale.innerHTML= "light air".fontcolor("#AEF1F9");
     } else if (windSpeed <= 11) {
-      showBeaufortScale.innerHTML = "light breeze";
+      showBeaufortScale.innerHTML = "light breeze".fontcolor("#96F7DC");
     } else if (windSpeed <= 19) {
-      showBeaufortScale.innerHTML = "gentle breeze";
+      showBeaufortScale.innerHTML = "gentle breeze".fontcolor("#96F7B4");
     } else if (windSpeed <= 28) {
-      showBeaufortScale.innerHTML = "moderate breeze";
+      showBeaufortScale.innerHTML = "moderate breeze".fontcolor("#6FF46F");
     } else if (windSpeed <= 38) {
-      showBeaufortScale.innerHTML = "fresh breeze";
+      showBeaufortScale.innerHTML = "fresh breeze".fontcolor("#73ED12");
     } else if (windSpeed <= 49) {
-      showBeaufortScale.innerHTML = "strong breeze";
+      showBeaufortScale.innerHTML = "strong breeze".fontcolor("#A4ED12");
     } else if (windSpeed <= 61) {
-      showBeaufortScale.innerHTML = "high wind";
+      showBeaufortScale.innerHTML = "high wind".fontcolor("#DAED12");
     } else if (windSpeed <= 74) {
-      showBeaufortScale.innerHTML = "gale";
+      showBeaufortScale.innerHTML = "gale".fontcolor("#EDC212");
     } else if (windSpeed <= 88) {
-      showBeaufortScale.innerHTML = "strong gale";
+      showBeaufortScale.innerHTML = "strong gale".fontcolor("#ED8F12");
     } else if (windSpeed <= 102) {
-      showBeaufortScale.innerHTML = "storm";
+      showBeaufortScale.innerHTML = "storm".fontcolor("#ED6312");
     } else if (windSpeed <= 117) {
-      showBeaufortScale.innerHTML = "violent storm";
+      showBeaufortScale.innerHTML = "violent storm".fontcolor("#ED2912");
     } else if (windSpeed >= 118) {
-      showBeaufortScale.innerHTML = "hurricane force";
+      showBeaufortScale.innerHTML = "hurricane force".fontcolor("#D5102D");
     }
     //Date
     todayDate.innerHTML = formatDate(response.data.dt * 1000);

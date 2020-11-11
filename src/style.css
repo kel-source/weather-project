@@ -1,7 +1,9 @@
 body {
-    margin: 30px;
+    margin: 50px;
     color: lightgray;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
 }
 h1, strong, .day {
     color: black;
@@ -10,6 +12,7 @@ h1, strong, .day {
 .wrapper {
     margin: 0 auto;
     max-width: 550px;
+    min-width: 500px;
 }
 .weather-project {
     padding: 25px;

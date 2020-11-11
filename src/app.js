@@ -79,11 +79,11 @@ function formatDate(timestamp) {
     } else if (windSpeed <= 88) {
       showBeaufortScale.innerHTML = "strong gale".fontcolor("#F6830F");
     } else if (windSpeed <= 102) {
-      showBeaufortScale.innerHTML = "storm".fontcolor("#CD0A0A");
+      showBeaufortScale.innerHTML = "storm".fontcolor("#A20A0A");
     } else if (windSpeed <= 117) {
-      showBeaufortScale.innerHTML = "violent storm".fontcolor("#CD0A0A");
+      showBeaufortScale.innerHTML = "violent storm".fontcolor("#A20A0A");
     } else if (windSpeed >= 118) {
-      showBeaufortScale.innerHTML = "hurricane force".fontcolor("#CD0A0A");
+      showBeaufortScale.innerHTML = "hurricane force".fontcolor("#A20A0A");
     }
     //Date
     todayDate.innerHTML = formatDate(response.data.dt * 1000);
@@ -180,7 +180,7 @@ function showForecast(response) {
   let temperatureCelcius = null;
 
   //Current Location
-  let currentButton = document.querySelector(".btn-success");
+  let currentButton = document.querySelector("#current-button");
   currentButton.addEventListener("click", getLocationData);
 
   //Other Location

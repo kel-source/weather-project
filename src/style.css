@@ -1,9 +1,11 @@
 body {
     margin: 30px;
-    color: #878787;
+    color: lightgray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 h1, strong, .day {
     color: black;
+    font-weight: 750;
 }
 .wrapper {
     margin: 0 auto;
@@ -81,11 +83,13 @@ img {
 .col {
     padding: 0px;
 }
+.forecastTemperatures {
+    font-size: 13px;
+}
 .open-source {
     margin-top: 10px;
     font-size: xx-small;
     text-transform: none;
-}
-.forecastTemperatures {
-    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
 }

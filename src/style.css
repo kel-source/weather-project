@@ -13,14 +13,7 @@ h1, strong, .day {
     padding: 25px;
     border: 1px solid lightgray;
     border-radius: 5px;
-    /* (dark to light blue) */
     background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-
-    /* (purple to maroon) */
-    /* background-image: linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%); */
-
-    /* (dark to light blue) */
-    /* background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%); */
 }
 .city-search {
     text-align: left;
@@ -44,9 +37,6 @@ li {
 .beaufort-scale-link:hover {
     text-decoration: none;
     color: black;
-}
-.btn-success {
-    margin-bottom: 0;;
 }
 .active {
     color: black;
@@ -75,7 +65,7 @@ h2 small {
     top: -50px;
 }
 img {
-    width: 50px;
+    width: 75px;
 }
 .day {
     font-weight: 500;
@@ -86,11 +76,10 @@ img {
 .forecast {
     text-align: center;
     margin-top: 12px;
-    margin-bottom: 32px;
+    margin-bottom: 10px;
 }
-.randomCity {
-    display: block;
-    margin: 0 auto;
+.col {
+    padding: 0px;
 }
 .open-source {
     margin-top: 10px;

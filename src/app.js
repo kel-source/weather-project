@@ -59,31 +59,31 @@ function formatDate(timestamp) {
     //Wind Speed
     showWindSpeed.innerHTML = windSpeed;
     if (windSpeed <= 2) {
-    showBeaufortScale.innerHTML = "calm".fontcolor("#D2D3C9");
+    showBeaufortScale.innerHTML = "Calm".fontcolor("#D2D3C9");
     } else if (windSpeed <= 5) {
-      showBeaufortScale.innerHTML= "light air".fontcolor("#41AEA9");
+      showBeaufortScale.innerHTML= "Light air".fontcolor("#41AEA9");
     } else if (windSpeed <= 11) {
-      showBeaufortScale.innerHTML = "light breeze".fontcolor("#41AEA9");
+      showBeaufortScale.innerHTML = "Light breeze".fontcolor("#41AEA9");
     } else if (windSpeed <= 19) {
-      showBeaufortScale.innerHTML = "gentle breeze".fontcolor("#41AEA9");
+      showBeaufortScale.innerHTML = "Gentle breeze".fontcolor("#41AEA9");
     } else if (windSpeed <= 28) {
-      showBeaufortScale.innerHTML = "moderate breeze".fontcolor("#41AEA9");
+      showBeaufortScale.innerHTML = "Moderate breeze".fontcolor("#41AEA9");
     } else if (windSpeed <= 38) {
-      showBeaufortScale.innerHTML = "fresh breeze".fontcolor("#41AEA9");
+      showBeaufortScale.innerHTML = "Fresh breeze".fontcolor("#41AEA9");
     } else if (windSpeed <= 49) {
-      showBeaufortScale.innerHTML = "strong breeze".fontcolor("#F6830F");
+      showBeaufortScale.innerHTML = "Strong breeze".fontcolor("#F6830F");
     } else if (windSpeed <= 61) {
-      showBeaufortScale.innerHTML = "high wind".fontcolor("#F6830F");
+      showBeaufortScale.innerHTML = "High wind".fontcolor("#F6830F");
     } else if (windSpeed <= 74) {
-      showBeaufortScale.innerHTML = "gale".fontcolor("#F6830F");
+      showBeaufortScale.innerHTML = "Gale".fontcolor("#F6830F");
     } else if (windSpeed <= 88) {
-      showBeaufortScale.innerHTML = "strong gale".fontcolor("#F6830F");
+      showBeaufortScale.innerHTML = "Strong gale".fontcolor("#F6830F");
     } else if (windSpeed <= 102) {
-      showBeaufortScale.innerHTML = "storm".fontcolor("#A20A0A");
+      showBeaufortScale.innerHTML = "Storm".fontcolor("#A20A0A");
     } else if (windSpeed <= 117) {
-      showBeaufortScale.innerHTML = "violent storm".fontcolor("#A20A0A");
+      showBeaufortScale.innerHTML = "Violent storm".fontcolor("#A20A0A");
     } else if (windSpeed >= 118) {
-      showBeaufortScale.innerHTML = "hurricane force".fontcolor("#A20A0A");
+      showBeaufortScale.innerHTML = "Hurricane force".fontcolor("#A20A0A");
     }
     //Date
     todayDate.innerHTML = formatDate(response.data.dt * 1000);

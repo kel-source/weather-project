@@ -1,4 +1,3 @@
-//Current Location Date & Time
 function formatDate(timestamp) {
   let now = new Date(timestamp);
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -9,7 +8,6 @@ function formatDate(timestamp) {
   return `${day} ${date} ${month} | ${formatHours(timestamp)}`;
   }
 
-  //Forecast Hours
   function formatHours(timestamp) {
     let now = new Date(timestamp);
     let hours = now.getHours();
@@ -23,40 +21,27 @@ function formatDate(timestamp) {
     return `${hours}:${minutes}`;
   }
   
-  //Location Data
   function showLocationData(response) {
-    //City & Country
     city = response.data.name;
     let country = response.data.sys.country;
     let h1 = document.querySelector("h1");
-    //Weather Description
     let weatherDescription = response.data.weather[0].description;
     let showWeatherDescription = document.querySelector("#weather-description");
-    //Temperature
     temperatureCelcius = Math.round(response.data.main.temp);
     let h2 = document.querySelector("#temperature");
-    //Humidity
     let humidity = Math.round(response.data.main.humidity);
     let showHumidity = document.querySelector("#humidity");
-    //Wind Speed
     let windSpeed = Math.round(response.data.wind.speed);
     let showWindSpeed = document.querySelector("#wind-speed");
     let showBeaufortScale = document.querySelector("#beaufort-scale");
-    //Date
     let todayDate = document.querySelector("#today-date");
-    //Weather Icon
     let icon = document.querySelector("#icon");
     let showWeatherIcon = response.data.weather[0].icon;
   
-    //City & Country
     h1.innerHTML = `${city} (${country})`;
-    //Weather Description
     showWeatherDescription.innerHTML = weatherDescription;
-    //Temperature
     h2.innerHTML= temperatureCelcius;
-    //Humidity
     showHumidity.innerHTML = humidity;
-    //Wind Speed
     showWindSpeed.innerHTML = windSpeed;
     if (windSpeed <= 2) {
     showBeaufortScale.innerHTML = "Calm".fontcolor("#D2D3C9");
@@ -85,14 +70,11 @@ function formatDate(timestamp) {
     } else if (windSpeed >= 118) {
       showBeaufortScale.innerHTML = "Hurricane force".fontcolor("#A20A0A");
     }
-    //Date
     todayDate.innerHTML = formatDate(response.data.dt * 1000);
-    //Weather Icon
     icon.setAttribute("src", `http://openweathermap.org/img/wn/${showWeatherIcon}@2x.png`);
     icon.setAttribute("alt", weatherDescription);
   }
   
-//Forecast
 function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
@@ -103,7 +85,7 @@ function showForecast(response) {
     forecastElement.innerHTML += 
     `<div class="col 2">
       <div class="row">
-        <div class="col day">
+        <div class="col times">
           ${formatHours(forecastApi.dt * 1000)}
         </div>
       </div>
@@ -120,7 +102,6 @@ function showForecast(response) {
       }
 }
 
-  //Current Location
   function showPosition(position) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
@@ -135,7 +116,6 @@ function showForecast(response) {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
 
-  //Other Location
   function citySubmit(city) {
     let apiKey = "bbf0836e2ed0d460df9b8ac5448ab908";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -151,7 +131,6 @@ function showForecast(response) {
     citySubmit(cityInputElement.value);
   }
 
-  //Temperature (F)
   function showFahrenheitTemperature(event) {
     event.preventDefault();
     let changeTemperatureElement = document.querySelector("#temperature");
@@ -165,7 +144,6 @@ function showForecast(response) {
     axios.get(apiUrl).then(showForecast);
   }
 
-  //Temperature (C)
   function showCelciusTemperature(event) {
     event.preventDefault();
     let changeTemperatureElement = document.querySelector("#temperature");
@@ -178,20 +156,12 @@ function showForecast(response) {
 
   let city = null;
   let temperatureCelcius = null;
-
-  //Current Location
   let currentButton = document.querySelector("#current-button");
   currentButton.addEventListener("click", getLocationData);
-
-  //Other Location
   let enterCity = document.querySelector("#city-enter");
   enterCity.addEventListener("submit", cityInputValue);
-
-  //Temperature (F)
   let fahrenheitLink = document.querySelector("#fahrenheit-link");
   fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
-
-  //Temperature (C)
   let celciusLink = document.querySelector("#celcius-link");
   celciusLink.addEventListener("click", showCelciusTemperature);
 

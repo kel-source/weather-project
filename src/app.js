@@ -96,7 +96,7 @@ function showForecast(response) {
       </div>
       <div class="row">
         <div class="col forecastTemperatures">
-          <strong>${Math.round(forecastApi.main.temp)}</strong>
+          <strong>${Math.round(forecastApi.main.temp)}°</strong>
         </div>
       </div>`;
       }
